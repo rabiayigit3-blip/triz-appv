@@ -19,6 +19,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import urllib.request
 import json
 import time
+import os
 
 # ─────────────────────────────────────────────────────────────
 # AYARLAR
