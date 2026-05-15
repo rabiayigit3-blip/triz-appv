@@ -23,7 +23,8 @@ import time
 # ─────────────────────────────────────────────────────────────
 # AYARLAR
 # ─────────────────────────────────────────────────────────────
-DOSYA          = r"C:\Users\Victus\Desktop\Tez_Triz_Veri_14nisan.xlsx"
+import os
+DOSYA = os.path.join(os.path.dirname(__file__), "Tez_Triz_Veri_14nisan.xlsx")
 COHERE_API_KEY = "NeuB3jL9eQf0imVgamBGT5quYHOXOYP4GgioF5Tf"
 COHERE_MODEL   = "command-a-03-2025"
 TOP_K_ILKE     = 3
