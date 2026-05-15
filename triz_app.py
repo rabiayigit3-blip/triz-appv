@@ -23,9 +23,8 @@ import time
 # ─────────────────────────────────────────────────────────────
 # AYARLAR
 # ─────────────────────────────────────────────────────────────
-import os
-DOSYA = os.path.join(os.path.dirname(__file__), "Tez_Triz_Veri_14nisan.xlsx")
-COHERE_API_KEY = "NeuB3jL9eQf0imVgamBGT5quYHOXOYP4GgioF5Tf"
+DOSYA          = "Tez_Triz_Veri_14nisan.xlsx"
+COHERE_API_KEY = st.secrets.get("COHERE_API_KEY", os.environ.get("COHERE_API_KEY", ""))
 COHERE_MODEL   = "command-a-03-2025"
 TOP_K_ILKE     = 3
 
@@ -249,7 +248,7 @@ def temizle(m):
 
 @st.cache_resource(show_spinner="Veri tabanı yükleniyor...")
 def yukle_model():
-    pd.read_excel(DOSYA)
+    df = pd.read_excel(DOSYA, header=1)
     df.columns = df.columns.str.strip()
     df["Problem"] = df["Problem"].fillna("").astype(str).str.strip()
     df["Önerilen Buluş İlkeleri (Ad)"] = (
