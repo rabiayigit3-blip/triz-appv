@@ -251,6 +251,7 @@ def temizle(m):
 def yukle_model():
     df = pd.read_excel(DOSYA)
     df.columns = df.columns.str.strip()
+    st.write(df.columns.tolist())  # geçici debug
     df["Problem"] = df["Problem"].fillna("").astype(str).str.strip()
     df["Önerilen Buluş İlkeleri (Ad)"] = (
         df["Önerilen Buluş İlkeleri (Ad)"].fillna("").astype(str).str.strip()
