@@ -249,7 +249,7 @@ def temizle(m):
 
 @st.cache_resource(show_spinner="Veri tabanı yükleniyor...")
 def yukle_model():
-    df = pd.read_excel(DOSYA)
+    pd.read_excel(DOSYA)
     df.columns = df.columns.str.strip()
     st.write(df.columns.tolist())  # geçici debug
     df["Problem"] = df["Problem"].fillna("").astype(str).str.strip()
